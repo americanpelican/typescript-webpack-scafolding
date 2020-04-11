@@ -1,0 +1,74 @@
+{
+	"compileOnSave": true,
+
+	//File Inclusion
+	"include": [
+		"./src/"
+	],
+	"exclude": [
+		"./lib/**/*",
+		"./types/**/*",
+		"./node_modules/**/*"
+	],
+
+
+	"compilerOptions": {
+
+		"experimentalDecorators": true,
+
+		"noImplicitAny": true,
+		"removeComments": false,
+		"preserveConstEnums": true,
+
+
+		"listEmittedFiles": true,
+		"pretty": true, // Stylize errors and messages using color and context, check terminal if not working
+		"disableSolutionSearching": false, // not want a project to be included when using features like find all references, improves editor performance
+		"assumeChangesOnlyAffectDirectDependencies": false, //avoid rechecking/rebuilding all truly possibly-affected files, and only recheck/rebuild files that have changed
+
+		"inlineSourceMap": false,
+		"inlineSources": false,
+
+		// Project options
+		"outDir": "./lib", // If specified, .js (as well as .d.ts, .js.map, etc.) files will be emitted into this directory.
+
+		"composite": true, // enforces certain constraints which make it possible for build tools. Set rootdir to directory containing the tsconfig.json file.
+		"rootDir": "./src", // If composite true, rootdir is set to directory containing the tsconfig.json file.
+
+		"target": "es2019", // recommended target based off of the Node version, Node 12 - ES2019
+		"module": "ESNext", // Sets the module system for the program
+
+		"lib": [ // includes a default set of type definitions for built-in JS APIs (like Math), as well as type definitions for things found in browser environments (like document).
+			"es6"
+		],
+
+		"declaration": true, // Generate d.ts files for every TypeScript or JavaScript file inside your project
+		"declarationMap": true, // Generates a source map for .d.ts files which map back to the original .ts source file
+		"sourceMap": true, // allow debuggers and other tools to display the original TypeScript source code
+		"noEmit": false, // Do not emit compiler output files like JavaScript source code, source-maps or declarations.
+		"isolatedModules": true, // warn if you write certain code that can’t be correctly interpreted by a single-file transpilation process.
+		"declarationDir": "./types", // root directory for where declaration files are emitted.
+
+		// strict checks
+		"strict": true, // all
+
+		// module resolution
+		"baseUrl": "./src",
+
+		"allowSyntheticDefaultImports": true, // allows  import React from "react"  When the module does not specify a default export
+		"esModuleInterop": true, // emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Also enabled by synthetic imports
+		"moduleResolution": "node",
+		"resolveJsonModule": false,
+
+		// linter checks
+		"useDefineForClassFields": true, // switches to the upcoming ECMA runtime behavior of class fields
+		"allowUnreachableCode": false, // does not allow unreachable code
+		"disableSourceOfProjectReferenceRedirect": false, // go back to the pre-3.7 behavior where d.ts files were used
+		"importsNotUsedAsValues": "error", // This preserves all imports (the same as the preserve option), but will error when a value import is only used as a type.
+		"noFallthroughCasesInSwitch": true, // Ensures that any non-empty case inside a switch statement includes either break or return.
+		"noUnusedParameters": true, // errors on unused parameters in functions.
+		"noUnusedLocals": true // errors on unused local variables.
+
+	}
+
+}

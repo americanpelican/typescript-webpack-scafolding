@@ -1,0 +1,11 @@
+.nyc_output
+.vscode
+build
+coverage
+etc
+dist
+lib
+node_modules
+release-builds
+test
+types

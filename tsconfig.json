@@ -1,0 +1,14 @@
+{
+	"extends": "./tsconfig.base.json", // reference to the base configuration used, which should be pretty standard across repos
+
+	"references": [
+		{"path": "../some-ts-repo"} // reference other TS projects to be imported, TSC recompiles changes
+	],
+
+	"compilerOptions": {
+		"paths": { // handle for TS projects to be imported in a way that aligns with Webpack resolve/alias
+			"some-ts-repo": ["../../some-ts-repo"],
+		}
+	}
+
+}
